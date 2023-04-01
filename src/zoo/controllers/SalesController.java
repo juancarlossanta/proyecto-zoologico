@@ -9,10 +9,6 @@ public class SalesController {
 
 	private static Gestion gestion = new Gestion();
 
-//	public SalesController() {
-//		SalesController.gestion = new Gestion();
-//	}
-
 	public List<Sale> listSales() {
 		return gestion.listSales();
 	}

@@ -19,12 +19,6 @@ public class Gestion {
 	private static ArrayList<Habitat> habitats = CreateHabitats.create();
 	private static ArrayList<Tour> tours = CreateTours.create();
 
-	public void addAnimal(String nameHabitat, Animal animal) {
-		Habitat habitat = buscarHabitat(nameHabitat);
-		habitat.addAnimal(animal);
-		System.out.println("Bienvenido " + animal.toString());
-	}
-
 	public static Habitat buscarHabitat(String nameHabitat) {
 		Habitat found = null;
 		for (Habitat habitat : habitats) {
@@ -34,6 +28,20 @@ public class Gestion {
 			}
 		}
 		return found;
+	}
+
+	public void addAnimal(String nameHabitat, Animal animal) {
+		Habitat habitat = buscarHabitat(nameHabitat);
+		habitat.addAnimal(animal);
+		System.out.println("Bienvenido " + animal.toString());
+	}
+
+	public List<Animal> getAllAnimals() {
+		ArrayList<Animal> animals = new ArrayList<Animal>();
+		for (Habitat habitat : habitats) {
+			animals.addAll(habitat.getAnimals());
+		}
+		return animals;
 	}
 
 	public int getIndexByAnimalId(int id) {
@@ -48,14 +56,6 @@ public class Gestion {
 			}
 		}
 		return i;
-	}
-
-	public List<Animal> getAllAnimals() {
-		ArrayList<Animal> animals = new ArrayList<Animal>();
-		for (Habitat habitat : habitats) {
-			animals.addAll(habitat.getAnimals());
-		}
-		return animals;
 	}
 
 	public void updateAnimal(int index, Animal animal) {
@@ -145,6 +145,34 @@ public class Gestion {
 			total += sale.getTotal();
 		}
 		return total;
+	}
+
+	public int getIndexOfAmongAll(int animalId) {
+		List<Animal> animals = getAllAnimals();
+		int i = 0;
+		for (Animal animal : animals) {
+			if (animal.getAnimalId() == animalId) {
+				break;
+			}
+			i++;
+		}
+		return i;
+	}
+
+	public String getHabiatByAnimal(Animal animal) {
+		String nameHabitat = "";
+		for (Habitat habitat : habitats) {
+			for (Animal current : habitat.getAnimals()) {
+				if (animal == current) {
+					nameHabitat = habitat.getName();
+					break;
+				}
+			}
+			if (!nameHabitat.equals("")) {
+				break;
+			}
+		}
+		return nameHabitat;
 	}
 
 }

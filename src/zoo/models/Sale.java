@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class Sale {
 
+	private static int accum;
+
 	private int transactionId;
 	private Date date;
 	private Tour item;
 	private Visitor visitor;
 	private int quantity;
 	private double total;
-
-	private static int accum;
 
 	public Sale(Date date, Tour item, Visitor visitor, int quantity, double total) {
 		this.transactionId = ++accum;

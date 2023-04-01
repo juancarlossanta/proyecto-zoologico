@@ -31,6 +31,11 @@ import zoo.utils.Today;
 @SuppressWarnings("serial")
 public class TourSales extends JFrame {
 
+	private static Tour tour;
+
+	private int cantidad;
+	private double valorVenta;
+
 	private SalesController salesController;
 	private VisitorController visitorController;
 	private TourController tourController;
@@ -43,26 +48,18 @@ public class TourSales extends JFrame {
 	private JTextField txtNumeroBoletos;
 	private JTextField txtTotal;
 	private JComboBox<Object> cbxTipo;
-
 	private JLabel lbltotalVenta;
 	private JLabel lblDescuento;
-
 	private JButton btnVender;
 	private JButton btnCalcular;
 	private JButton btnVolver;
-
-	private int cantidad;
-	private double valorVenta;
 	private JTextField txtTotalVenta;
 	private JTextField txtDescuento;
-
-	private static Tour tour;
 
 	/**
 	 * Create the frame.
 	 */
 	public TourSales() {
-//		logistics = new DeptLogistics();
 		salesController = new SalesController();
 		visitorController = new VisitorController();
 		tourController = new TourController();
@@ -290,8 +287,8 @@ public class TourSales extends JFrame {
 		valorVenta = cantidad * tour.getPrice();
 
 		txtTotalVenta.setText("$" + valorVenta);
-		txtDescuento.setText((int) ((1 - tour.getDiscount()) * 100) + "%");
-		txtTotal.setText("$" + valorVenta * tour.getDiscount());
+		txtDescuento.setText((int) (tour.getDiscount() * 100) + "%");
+		txtTotal.setText(String.format("$ %.2f", valorVenta * (1 - tour.getDiscount())));
 	}
 
 	private void realizarVenta() {

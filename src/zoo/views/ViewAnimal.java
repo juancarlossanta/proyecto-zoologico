@@ -25,7 +25,9 @@ import zoo.models.WildAnimal;
 @SuppressWarnings("serial")
 public class ViewAnimal extends JFrame {
 
-//	private DeptLogistics logistics;
+	public static int index = 0;
+	public static boolean enEdicion = false;
+
 	private HabitatController habitatController;
 	private List<Animal> animals;
 
@@ -42,14 +44,10 @@ public class ViewAnimal extends JFrame {
 	private JButton btnEditar;
 	private JButton btnEliminar;
 
-	public static int index = 0;
-	public static boolean enEdicion = false;
-
 	/**
 	 * Create the frame.
 	 */
 	public ViewAnimal() {
-//		logistics = new DeptLogistics();
 		habitatController = new HabitatController();
 		animals = habitatController.listAnimals();
 		initComponents();
@@ -92,14 +90,6 @@ public class ViewAnimal extends JFrame {
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-//				int eleccion = ShowMessage.question("En realidad desea eliminar este animal");
-//				if (eleccion == JOptionPane.NO_OPTION)
-//					return;
-//
-//				if (habitatController.getAnimalsSize() > 0)
-//					habitatController.removeAnimal("Granja", ViewAnimal.index);
-//
-//				cargarDatos();
 			}
 		});
 
@@ -167,6 +157,7 @@ public class ViewAnimal extends JFrame {
 		getContentPane().add(btnEditar);
 
 		btnEliminar = new JButton("Eliminar");
+		btnEliminar.setEnabled(false);
 		btnEliminar.setBounds(447, 330, 120, 25);
 		getContentPane().add(btnEliminar);
 
@@ -202,7 +193,6 @@ public class ViewAnimal extends JFrame {
 
 		lblTipo.setText(texto);
 
-		System.out.println(animal.getUrlImg());
 		putImage(animal.getUrlImg());
 
 	}

@@ -29,7 +29,6 @@ import zoo.utils.ShowMessage;
 @SuppressWarnings("serial")
 public class FormAnimal extends JFrame {
 
-//	private DeptLogistics logistics;
 	private HabitatController habitatController;
 
 	private JPanel contentPane;
@@ -46,7 +45,6 @@ public class FormAnimal extends JFrame {
 	private JLabel lblTipo;
 	private JLabel lblTitulo;
 	private JLabel lblImg;
-
 	private JLabel lblCarateristica;
 	private JSlider slider;
 	private JTextField txtAuxId;
@@ -55,7 +53,6 @@ public class FormAnimal extends JFrame {
 	 * Create the frame.
 	 */
 	public FormAnimal() {
-//		logistics = new DeptLogistics();
 		habitatController = new HabitatController();
 		initComponents();
 		configActions();
@@ -125,7 +122,8 @@ public class FormAnimal extends JFrame {
 				} else {
 					habitatController.addAnimal(habitatName, animal);
 					ShowMessage.info("El animal ha sido ingresado");
-					ViewAnimal.index = habitatController.listAnimals().size() - 1;
+					System.out.println(animal.getAnimalId());
+					ViewAnimal.index = habitatController.getIndexOfAmongAll(animal.getAnimalId());
 				}
 
 				ViewAnimal viewAnimal = new ViewAnimal();
@@ -280,6 +278,8 @@ public class FormAnimal extends JFrame {
 			cbTipo.setSelectedIndex(2);
 			slider.setValue(((WildAnimal) animalEnEdicion).getDangerLevel() - '0');
 		}
+
+		cbHabitat.setSelectedItem(habitatController.getHabiatByAnimal(animalEnEdicion));
 
 	}
 }

@@ -13,7 +13,6 @@ import zoo.models.Sale;
 
 public class Main {
 
-//	private static DeptLogistics logistics = new DeptLogistics();
 	private static SalesController salesController = new SalesController();
 
 	public static Paragraph createParagraph() {
@@ -23,7 +22,7 @@ public class Main {
 
 	public static PdfPTable createTable() {
 
-		PdfPTable table2 = new PdfPTable(5); // Crea una tabla con 3 columnas
+		PdfPTable table2 = new PdfPTable(6); // Crea una tabla con 3 columnas
 		table2.setWidthPercentage(100); // La tabla ocupa el ancho completo de la página
 		table2.setSpacingBefore(10f); // Espacio antes de la tabla
 		table2.setSpacingAfter(10f); // Espacio después de la tabla
@@ -50,6 +49,7 @@ public class Main {
 			table2.addCell(plan[2]);
 			table2.addCell(plan[3]);
 			table2.addCell(plan[4]);
+			table2.addCell(plan[5]);
 		}
 
 		return table2;
@@ -57,7 +57,7 @@ public class Main {
 	}
 
 	public static Paragraph createResumen() {
-		Paragraph totales = new Paragraph("Total de las ventas: $" + obtenerTotal());
+		Paragraph totales = new Paragraph(String.format("Total de las ventas: $%.2f", obtenerTotal()));
 		totales.setAlignment(Element.ALIGN_RIGHT);
 		return totales;
 	}
@@ -69,14 +69,14 @@ public class Main {
 
 		List<Sale> transactions = salesController.listSales();
 		for (Sale sales : transactions) {
-			String[] plan = new String[5];
+			String[] plan = new String[6];
 			double valorVenta = sales.getItem().getPrice() * sales.getQuantity();
 			plan[0] = sales.getItem().getName();
 			plan[1] = sales.getItem().getPrice() + "";
 			plan[2] = sales.getQuantity() + "";
 			plan[3] = valorVenta + "";
-			plan[4] = (int) (sales.getItem().getDiscount() * 100) + "";
-			plan[4] = (valorVenta * (1 - sales.getItem().getDiscount())) + "";
+			plan[4] = (int) (sales.getItem().getDiscount() * 100) + "%";
+			plan[5] = String.format("%.2f", valorVenta * (1 - sales.getItem().getDiscount()));
 			planes.add(plan);
 		}
 

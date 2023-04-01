@@ -26,11 +26,9 @@ public class AllTours extends JFrame {
 	private JPanel contentPane;
 	private JPanel panelTabla;
 	private JTable table;
-
+	private DefaultTableModel defaultTableModel;
 	private JButton btnVender;
 	private JButton btnVolver;
-
-	private DefaultTableModel defaultTableModel;
 
 	/**
 	 * Create the frame.

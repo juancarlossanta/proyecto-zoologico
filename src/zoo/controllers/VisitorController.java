@@ -9,10 +9,6 @@ public class VisitorController {
 
 	private static Gestion gestion = new Gestion();
 
-//	public VisitorController() {
-//		VisitorController.gestion = new Gestion();
-//	}
-
 	public void addVisitor(Visitor visitor) {
 		gestion.addVisitor(visitor);
 	}

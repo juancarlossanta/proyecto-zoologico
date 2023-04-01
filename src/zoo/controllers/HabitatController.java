@@ -9,10 +9,6 @@ public class HabitatController {
 
 	private static Gestion gestion = new Gestion();
 
-//	public HabitatController() {
-//		HabitatController.gestion = new Gestion();
-//	}
-
 	public void addAnimal(String habitat, Animal animal) {
 		gestion.addAnimal(habitat, animal);
 	}
@@ -39,6 +35,14 @@ public class HabitatController {
 
 	public String getNameByAnimalId(int animalId) {
 		return gestion.getNameByAnimalId(animalId);
+	}
+
+	public int getIndexOfAmongAll(int animalId) {
+		return gestion.getIndexOfAmongAll(animalId);
+	}
+
+	public String getHabiatByAnimal(Animal animal) {
+		return gestion.getHabiatByAnimal(animal);
 	}
 
 }

@@ -9,10 +9,6 @@ public class TourController {
 
 	private static Gestion gestion = new Gestion();
 
-//	public TourController() {
-//		TourController.gestion = new Gestion();
-//	}
-
 	public List<Tour> listTours() {
 		return gestion.listTours();
 	}

@@ -21,23 +21,20 @@ import zoo.models.WildAnimal;
 @SuppressWarnings("serial")
 public class AnimalInventory extends JFrame {
 
-	private HabitatController animalController;
+	private HabitatController habitatController;
 
 	private JPanel contentPane;
 	private JTable table;
 	private JPanel panelTabla;
-
 	private JButton btnVer;
 	private JButton btnVolver;
-
 	private DefaultTableModel defaultTableModel;
 
 	/**
 	 * Create the frame.
 	 */
 	public AnimalInventory() {
-//		logistics = new DeptLogistics();
-		animalController = new HabitatController();
+		habitatController = new HabitatController();
 		initComponents();
 		configActions();
 	}
@@ -54,7 +51,7 @@ public class AnimalInventory extends JFrame {
 
 				int id = (int) defaultTableModel.getValueAt(table.getSelectedRow(), 0);
 
-				ViewAnimal.index = animalController.getIndexByAnimalId(id);
+				ViewAnimal.index = habitatController.getIndexOfAmongAll(id);
 
 				ViewAnimal viewAnimal = new ViewAnimal();
 				viewAnimal.setVisible(true);
@@ -134,7 +131,7 @@ public class AnimalInventory extends JFrame {
 
 		Object[] objects = new Object[4];
 
-		for (Animal animal : animalController.listAnimals()) {
+		for (Animal animal : habitatController.listAnimals()) {
 			objects[0] = animal.getAnimalId();
 			objects[1] = animal.getName();
 			objects[2] = animal.getBirthdate();

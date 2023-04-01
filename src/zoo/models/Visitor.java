@@ -2,14 +2,14 @@ package zoo.models;
 
 public class Visitor {
 
+	public static int accum;
+
 	private int visitorId;
 	private String cedula;
 	private String name;
 	private String address;
 	private String phone;
-	public int visits;
-
-	public static int accum;
+	private int visits;
 
 	public Visitor(String cedula, String name, String address, String phone) {
 		this.visitorId = ++accum;

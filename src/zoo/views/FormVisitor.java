@@ -21,7 +21,6 @@ import zoo.utils.ShowMessage;
 @SuppressWarnings("serial")
 public class FormVisitor extends JFrame {
 
-//	private DeptLogistics logistics;
 	private VisitorController visitorController;
 
 	private JPanel contentPane;
@@ -29,16 +28,13 @@ public class FormVisitor extends JFrame {
 	private JTextField txtDireccion;
 	private JTextField txtTelefono;
 	private JTextField txtIndentificacion;
-
 	private JButton btnGuardar;
-
 	private JButton btnCancelar;
 
 	/**
 	 * Create the frame.
 	 */
 	public FormVisitor() {
-//		logistics = new DeptLogistics();
 		visitorController = new VisitorController();
 		initComponents();
 		configActions();
