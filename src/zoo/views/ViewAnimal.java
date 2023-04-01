@@ -37,7 +37,6 @@ public class ViewAnimal extends JFrame {
 	private JLabel lblEdad;
 	private JLabel lblHabitat;
 	private JLabel lblTipo;
-
 	private JButton btnAnterior;
 	private JButton btnSiguiente;
 	private JButton btnVolver;

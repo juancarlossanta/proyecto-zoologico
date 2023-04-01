@@ -23,16 +23,13 @@ public class VisitorManagement extends JFrame {
 	private JPanel contentPane;
 	private JPanel panelTabla;
 	private JTable table;
-
 	private JButton btnVolver;
-
 	private DefaultTableModel defaultTableModel;
 
 	/**
 	 * Create the frame.
 	 */
 	public VisitorManagement() {
-//		logistics = new DeptLogistics();
 		visitorController = new VisitorController();
 		initComponents();
 		configActions();
