@@ -122,7 +122,6 @@ public class FormAnimal extends JFrame {
 				} else {
 					habitatController.addAnimal(habitatName, animal);
 					ShowMessage.info("El animal ha sido ingresado");
-					System.out.println(animal.getAnimalId());
 					ViewAnimal.index = habitatController.getIndexOfAmongAll(animal.getAnimalId());
 				}
 

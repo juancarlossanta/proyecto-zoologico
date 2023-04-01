@@ -10,11 +10,12 @@ import zoo.models.Tour;
 import zoo.models.Visitor;
 import zoo.utils.CreateHabitats;
 import zoo.utils.CreateTours;
+import zoo.utils.CreateVisitor;
 
 public class Gestion {
 
 	private static ArrayList<Sale> sales = new ArrayList<>();
-	private static ArrayList<Visitor> visitors = new ArrayList<>();
+	private static ArrayList<Visitor> visitors = CreateVisitor.create();
 
 	private static ArrayList<Habitat> habitats = CreateHabitats.create();
 	private static ArrayList<Tour> tours = CreateTours.create();

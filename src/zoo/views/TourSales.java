@@ -309,7 +309,7 @@ public class TourSales extends JFrame {
 		Date time = Today.getTime();
 		Tour tour = tourController.getByName(cbxTipo.getSelectedItem() + "");
 
-		Sale transaction = new Sale(time, tour, visitor, cantidad, valorVenta * tour.getDiscount());
+		Sale transaction = new Sale(time, tour, visitor, cantidad, valorVenta * (1 - tour.getDiscount()));
 		salesController.addSale(transaction);
 
 	}
