@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -17,6 +18,7 @@ import zoo.controllers.TourController;
 import zoo.models.Extra;
 import zoo.models.Habitat;
 import zoo.models.Tour;
+import zoo.utils.ShowMessage;
 
 @SuppressWarnings("serial")
 public class AllTours extends JFrame {
@@ -44,6 +46,15 @@ public class AllTours extends JFrame {
 
 		btnVender.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
+				if (!tieneFilaElegida(table)) {
+					ShowMessage.generic("Por favor, elija un item.");
+					return;
+				}
+
+				int id = (int) defaultTableModel.getValueAt(table.getSelectedRow(), 0);
+
+				TourSales.tour = tourController.getTourById(id);
 				TourSales sales = new TourSales();
 				sales.setVisible(true);
 				dispose();

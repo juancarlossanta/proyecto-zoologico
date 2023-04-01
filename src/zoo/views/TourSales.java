@@ -31,7 +31,7 @@ import zoo.utils.Today;
 @SuppressWarnings("serial")
 public class TourSales extends JFrame {
 
-	private static Tour tour;
+	public static Tour tour = null;
 
 	private int cantidad;
 	private double valorVenta;
@@ -243,7 +243,8 @@ public class TourSales extends JFrame {
 
 	private void isThereDataTour() {
 		if (!(tour == null)) {
-			System.out.println(tour.getName());
+			cbxTipo.setSelectedItem(tour.getName());
+			tour = null;
 		}
 	}
 
@@ -255,11 +256,19 @@ public class TourSales extends JFrame {
 			txtNombre.setText(visitor.getName());
 			txtDireccion.setText(visitor.getAddress());
 			txtTelefono.setText(visitor.getPhone());
-			cbxTipo.requestFocus();
+			putFocus();
 		} else {
 			txtNombre.setText("");
 			txtDireccion.setText("");
 			txtTelefono.setText("");
+		}
+	}
+
+	private void putFocus() {
+		if (cbxTipo.getSelectedIndex() == 0) {
+			cbxTipo.requestFocus();
+		} else {
+			txtNumeroBoletos.requestFocus();
 		}
 	}
 
