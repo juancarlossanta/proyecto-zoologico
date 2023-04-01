@@ -1,0 +1,17 @@
+URL Imagen: src/zoo/imgs/capra.jpg
+Nombre: La cabra
+Fecha Nacimiento: 2020-10-01
+Tipo: Salvaje
+Nivel peligrosidad: 6
+
+URL Imagen: src/zoo/imgs/bear.jpg
+Nombre: El oso
+Fecha Nacimiento: 2021-05-16
+Tipo: Salvaje
+Nivel peligrosidad: 8
+
+URL Imagen: src/zoo/imgs/turtle.jpg
+Nombre: La tortuguita
+Fecha Nacimiento: 2011-06-19
+Tipo: Doméstico
+Uso: Compañía
